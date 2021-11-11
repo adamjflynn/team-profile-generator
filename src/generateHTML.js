@@ -43,7 +43,7 @@ const generateIntern = function (intern) {
     <div class="card" style="width: 16rem;">
         <div class="card-header">
             <h3>${intern.name}</h3>
-            <span class="role">Intern</span> <i class="material-icons">school</i>
+            <span class="role">Intern</span> 
         </div>
     
         <ul class="list-group list-group-flush card-body">
@@ -58,7 +58,7 @@ const generateIntern = function (intern) {
 // pushes array to page
 
 generateHTML = (data) => {
-    
+
 	// array for cards
 
 	cardArray = [];
