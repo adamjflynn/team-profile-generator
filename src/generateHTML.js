@@ -1,7 +1,7 @@
 // creates manager
 
 const generateManager = function (manager) {
-    return `
+	return `
     <div class="card" style="width: 16rem;">
         <div class="card-header">
             <h3>${manager.name}</h3>
@@ -20,7 +20,7 @@ const generateManager = function (manager) {
 // creates engineer
 
 const generateEngineer = function (engineer) {
-    return `
+	return `
     <div class="card" style="width: 16rem;">
         <div class="card-header">
             <h3>${engineer.name}</h3>
@@ -38,8 +38,8 @@ const generateEngineer = function (engineer) {
 
 // creates intern
 
-const generateIntern = function (intern) {    
-return `
+const generateIntern = function (intern) {
+	return `
     <div class="card" style="width: 16rem;">
         <div class="card-header">
             <h3>${intern.name}</h3>
@@ -58,45 +58,44 @@ return `
 // pushes array to page
 
 generateHTML = (data) => {
+    
+	// array for cards
 
-    // array for cards
+	cardArray = [];
 
-    cardArray = [];
+	for (let i = 0; i < data.length; i++) {
+		const employee = data[i];
+		const role = employee.getRole();
 
-    for (let i = 0; i < data.length; i++) {
-        const employee = data[i];
-        const role = employee.getRole();
+		if (role === "Manager") {
+			const managerCard = generateManager(employee);
 
-        if (role === 'Manager') {
-            const managerCard = generateManager(employee);
+			cardArray.push(managerCard);
+		}
 
-            cardArray.push(managerCard);
-        }
+		if (role === "Engineer") {
+			const engineerCard = generateEngineer(employee);
 
-        if (role === 'Engineer') {
-            const engineerCard = generateEngineer(employee);
+			cardArray.push(engineerCard);
+		}
 
-            cardArray.push(engineerCard);
-        }
+		if (role === "Intern") {
+			const internCard = generateIntern(employee);
 
-        if (role === 'Intern') {
-            const internCard = generateIntern(employee);
+			cardArray.push(internCard);
+		}
+	}
 
-            cardArray.push(internCard);
-        }
-    }
+	const employeeCards = cardArray.join("");
 
-    const employeeCards = cardArray.join('');
-
-    const generateEmployees = generateTeamProfile(employeeCards);
-    return generateEmployees;
-
-}
+	const generateEmployees = generateTeamProfile(employeeCards);
+	return generateEmployees;
+};
 
 // generates html page
 
 const generateTeamProfile = function (employeeCards) {
-    return`
+	return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -129,6 +128,6 @@ const generateTeamProfile = function (employeeCards) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </html>
   `;
-}
+};
 
 module.exports = generateHTML;
