@@ -1,3 +1,4 @@
+const generateHTML = require("./src/generateHTML");
 const inquirer = require("inquirer");
 
 const fs = require("fs");
@@ -192,7 +193,7 @@ const addEmployee = () => {
 
 // function to generate HTML page file using file system
 const writeFile = (data) => {
-	fs.writeFile("./dist/index.html", data, (err) => {
+	fs.writeFile("./dist/index.html"), data, (err) => {
 		if (err) {
 			console.log(err);
 			return;
@@ -201,7 +202,7 @@ const writeFile = (data) => {
 				"Team profile created, open page in index.HTML to see the finished page!"
 			);
 		}
-	});
+	};
 };
 
 addManager()
