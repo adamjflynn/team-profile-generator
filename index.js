@@ -7,7 +7,7 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 
-
+const teamProfiles = [];
 
 // prompt for manager
 const addManager = () => {
