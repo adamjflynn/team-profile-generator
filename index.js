@@ -165,6 +165,7 @@ const addEmployee = () => {
 			},
 		])
 		.then((employeeData) => {
+
 			// data for employee types
 
 			let { name, id, email, role, github, school, confirmAddEmployee } =
@@ -192,8 +193,8 @@ const addEmployee = () => {
 };
 
 // function to generate HTML page file using file system
-const writeFile = (data) => {
-	fs.writeFile("./dist/index.html"), data, (err) => {
+const writeFile = data => {
+	fs.writeFile("./dist/index.html", data, (err) => {
 		if (err) {
 			console.log(err);
 			return;
@@ -202,17 +203,17 @@ const writeFile = (data) => {
 				"Team profile created, open page in index.HTML to see the finished page!"
 			);
 		}
-	};
+	})
 };
 
 addManager()
 	.then(addEmployee)
-	.then((teamProfiles) => {
+	.then(teamProfiles => {
 		return generateHTML(teamProfiles);
 	})
-	.then((pageHTML) => {
+	.then(pageHTML => {
 		return writeFile(pageHTML);
 	})
-	.catch((err) => {
+	.catch(err => {
 		console.log(err);
 	});
